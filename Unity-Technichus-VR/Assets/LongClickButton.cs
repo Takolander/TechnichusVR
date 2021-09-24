@@ -4,10 +4,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
-public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class LongClickButton : MonoBehaviour
 {
-    private bool pointerDown;
+    void Update(){
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevices(devices);
+
+        foreach(var item in devices){
+            Debug.Log(item.name + item.characteristics);
+        }
+    }
+    /*private bool pointerDown;
     private float pointerDownTimer;
     private float rip;
     private float requiredHoldTime = 3;
@@ -44,5 +53,5 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         pointerDown = false;
         pointerDownTimer = 0;
         rip = pointerDownTimer / requiredHoldTime;
-    }
+    }*/
 }
