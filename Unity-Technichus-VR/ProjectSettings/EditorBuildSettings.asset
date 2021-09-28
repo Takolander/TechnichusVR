@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bowling.unity
     guid: a1393d669aca17d4bbde92a1c4408cb0
+  - enabled: 1
+    path: Assets/Scenes/Runner.unity
+    guid: 0ad7e112065bac7429ef03406617a304
+  - enabled: 1
+    path: Assets/Scenes/Archery.unity
+    guid: fa9a53e783f45e3418f33f68f66cf74b
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 161b52bb4538da24f9bf4873c2a5b3a6, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4522a6919b6ee3f40b97d83b5f35657d, type: 2}
