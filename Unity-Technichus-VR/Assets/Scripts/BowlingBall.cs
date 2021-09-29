@@ -6,7 +6,7 @@ using UnityEngine.XR;
 public class BowlingBall : MonoBehaviour
 { 
     //The respawn position of the ball
-    Vector3 respawnPos = new Vector3(1.598f,0.551f, 0.275f);
+    Vector3 respawnPos = new Vector3(1.262f,0.551f, 1.952f);
 
     //Need to make sure that the wait funtion dosen't run multible times
     public bool collided = false;
