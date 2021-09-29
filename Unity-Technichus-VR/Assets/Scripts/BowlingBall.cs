@@ -12,6 +12,7 @@ public class BowlingBall : MonoBehaviour
     public bool collided = false;
 
     //Checks for collison with other objects
+    void OnCollisionEnter(Collision other) {
         //Checks if the bowlingball has colided with the backwall or the floor and calls respawn function
         if(other.gameObject.name == "backWall" || other.gameObject.name == "Plane") {
             Invoke("respawnBowlingBall", 2f); 
