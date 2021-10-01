@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class Show : MonoBehaviour
 {
-    public GameObject gameObject;
+    public new GameObject gameObject;
     public GameObject thisObject;
-    public float Timer = 1.5f;
+    public float timer = 1.5f;
 
     void Start(){
         thisObject.SetActive(false);
     }
 
-    // Update is called once per frame
     public IEnumerator Wait() {
-        //Wait for 5 seconds
-        yield return new WaitForSeconds(Timer);
+        //Wait for timer's seconds
+        yield return new WaitForSeconds(timer);
         thisObject.SetActive(true);
         //gameObject.SetActive(false);
     }
-    void Awake()
+
+    // Update is called once per frame
+    void Update()
     {
         if(gameObject == null){
             StartCoroutine(Wait());
+            enabled = false;
         }
-        Debug.Log(gameObject);
     }
 }
