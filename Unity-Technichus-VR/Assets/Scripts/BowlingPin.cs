@@ -6,11 +6,34 @@ public class BowlingPin : MonoBehaviour
 {
     //Score is static so that the pins use the same variable
     public static int score = 0;
+    public float timer = 5.0f;
     public Vector3 respawnPos;
+    public Quaternion respawnRotation;
+
+    GameObject ball;
+
+    public bool standing = true;
 
     //Get starting posision of the pin
     void Start() {
-        respawnPos = gameObject.transform.position;
+        respawnPos = transform.position;
+        respawnRotation = transform.rotation;
+        ball = GameObject.Find("BowlingBall");
+    }
+
+    void Update() {
+        if((gameObject.transform.localEulerAngles.z < -45 || gameObject.transform.localEulerAngles.z > 45) && standing){
+            standing = false;
+            StartCoroutine(Wait()); 
+        }
+    }
+
+    public IEnumerator Wait(){
+        Debug.Log("Wait called");
+        yield return new WaitForSeconds(timer);
+        ball.GetComponent<BowlingBall>().respawnBowlingBall();
+        yield return new WaitForSeconds(1.0f);
+        respawn();
     }
 
     public void countScore() {
@@ -28,9 +51,13 @@ public class BowlingPin : MonoBehaviour
     }
 
     public void respawn() {
+        Debug.Log("Respawn called");
+        gameObject.transform.rotation = respawnRotation;
+        gameObject.transform.position = respawnPos;
+
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
-        gameObject.transform.position = respawnPos;
+        standing = true;
     }
 }

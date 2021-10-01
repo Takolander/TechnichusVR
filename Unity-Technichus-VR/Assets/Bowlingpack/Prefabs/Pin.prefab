@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33239240036232820}
   - component: {fileID: 23554558342909230}
   - component: {fileID: 95316268202705676}
-  - component: {fileID: 1447284926427090387}
+  - component: {fileID: 7967939858513939963}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -102,7 +102,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1447284926427090387
+--- !u!114 &7967939858513939963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1327177171950836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a741b2af6826ad4ea955464603986b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a7969c992e3902489e38ea0ff56e675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
