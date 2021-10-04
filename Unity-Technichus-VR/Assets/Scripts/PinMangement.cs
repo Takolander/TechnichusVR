@@ -31,6 +31,7 @@ public class PinMangement : MonoBehaviour
                 collision = true;
                 Invoke("respawnPins", 3.0f);
             }/*Ny kod -->*/ else if(numberOfThrows == 2 && ball.needsToRespawn) {
+                
                 Invoke("respawnPins", 3.0f);
             }
         }
@@ -57,6 +58,8 @@ public class PinMangement : MonoBehaviour
         }
         Debug.Log("Ammount of pins hit: " + numberOfFallenPins);
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
+            Debug.Log("Number of throws: " + numberOfThrows);
+            Debug.Log("Number of fallenPins: " + numberOfFallenPins);
             Debug.Log("Respawning...");
             for (int i = 0; i < pins.Length; i++) {
                 pins[i].transform.position = positions[i];
@@ -68,8 +71,9 @@ public class PinMangement : MonoBehaviour
 
                 pins[i].standing = true;
                 pins[i].gameObject.SetActive(true);
-
+                
             }
+            numberOfFallenPins = 0;
             numberOfThrows = 0;  
         }
         collision = false; 
