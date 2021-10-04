@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class RemoveMessage : MonoBehaviour
 {
-    public GameObject gameObject;
-    public GameObject camera;
+    public new GameObject gameObject;
+    public new GameObject camera;
     public float Timer = 5.0f;
     // Update is called once per frame
     public IEnumerator Wait() {
         //Wait for 5 seconds
         
         yield return new WaitForSeconds(Timer);
-        //gameObject.SetActive(false);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
     void Update()
     {
