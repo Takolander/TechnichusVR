@@ -8,10 +8,16 @@ public class PinMangement : MonoBehaviour
     private Pin[] pins;
     private Vector3[] positions;
     private Quaternion[] rotations;
+    private int[] scores;
+
     public int numberOfThrows;
     private int numberOfFallenPins;
     public bool collision;
     private BowlingBall ball;
+    private int finalScore;
+    private int playedFrames;
+    private int throwOne;
+    private int scorePosition;
 
     //Intializes values
     public void Awake() {
@@ -20,6 +26,10 @@ public class PinMangement : MonoBehaviour
         ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
         pins = GetComponentsInChildren<Pin>();
         collision = false;
+        scores = new int[20];
+        finalScore = 0;
+        playedFrames = 0;
+        scorePosition = 0;
         savePosition(); 
     }
 
@@ -33,7 +43,7 @@ public class PinMangement : MonoBehaviour
             }else if(numberOfThrows == 2 && ball.needsToRespawn) {
                 Invoke("respawnPins", 3.0f);
             }
-        }    
+        }
     }
 
     //Get starting posisions and roatation for each pin
@@ -57,12 +67,17 @@ public class PinMangement : MonoBehaviour
                 numberOfFallenPins++;
             }
         }
+        if (numberOfThrows != 2) {
+            throwOne = numberOfFallenPins;
+        }
         Debug.Log("Ammount of pins hit: " + numberOfFallenPins);
         //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
             Debug.Log("Number of throws: " + numberOfThrows);
             Debug.Log("Number of fallenPins: " + numberOfFallenPins);
             Debug.Log("Respawning...");
+            //Calculate the score
+            calculateScore(throwOne, (numberOfFallenPins - throwOne));
             //Loop thru pins and respawn them
             for (int i = 0; i < pins.Length; i++) {
                 pins[i].transform.position = positions[i];
@@ -80,5 +95,50 @@ public class PinMangement : MonoBehaviour
             numberOfThrows = 0;
         }
         collision = false; 
+    }
+
+    //Adds the score of the played frame to an array and at the end of the frames counts the final score
+    public void calculateScore(int throwOne, int throwTwo) {
+        //Special way to handle if its a spare
+        if ((throwOne + throwTwo) == 10) {
+            scores[scorePosition] = throwOne + 10;
+            scores[scorePosition] = throwTwo;
+            scorePosition += 2;
+        } else {
+            scores[scorePosition] = throwOne;
+            scores[scorePosition + 1] = throwTwo;
+            scorePosition += 2;
+        }
+
+        playedFrames++;
+
+        //Counts the final score when all three rounds have been palyed
+        if (playedFrames == 10) {
+            for (int i = 0; i < scores.Length; i++) {
+                //Strike
+                if (scores[i] == 10) {
+                    if (scores[i + 2] == 10) {
+                        finalScore += (scores[i] + scores[i + 2] + scores[i + 4]);
+                        i++;
+                    }
+                    else {
+                        finalScore += (scores[i] + scores[i + 2] + scores[i + 3]);
+                        i++;
+                    }
+                } //Spare
+                else if (scores[i] > 10) {
+                    if (scores[i+ 2] > 10) {
+                        finalScore += ((scores[i] - 10) + scores[i + 1] + (scores[i + 2] - 10));
+                        i++;
+                    } else {
+                        finalScore += ((scores[i] - 10) + scores[i + 1] + scores[i + 2]);
+                    }         
+                } //All other cases 
+                else {
+                    finalScore += scores[i] + scores[i + 1];
+                    i++;
+                }
+            }
+        }
     }
 }
