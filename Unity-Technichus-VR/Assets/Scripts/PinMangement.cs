@@ -34,7 +34,7 @@ public class PinMangement : MonoBehaviour
                 
                 Invoke("respawnPins", 3.0f);
             }
-        }
+        }    
     }
 
     //Get starting posisions and roatation for each pin
@@ -74,7 +74,7 @@ public class PinMangement : MonoBehaviour
                 
             }
             numberOfFallenPins = 0;
-            numberOfThrows = 0;  
+            numberOfThrows = 0;
         }
         collision = false; 
     }
