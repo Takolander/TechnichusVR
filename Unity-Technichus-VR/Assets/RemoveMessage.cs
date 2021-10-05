@@ -6,12 +6,12 @@ public class RemoveMessage : MonoBehaviour
 {
     public new GameObject gameObject;
     public new GameObject camera;
+    //public FadeInFadeOut fader;
     public float Timer = 5.0f;
     // Update is called once per frame
     public IEnumerator Wait() {
         //Wait for 5 seconds
-        
-        yield return new WaitForSeconds(Timer);
+        yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }

@@ -8,18 +8,16 @@ using UnityEngine.UI;
 public class ButtonRestriction : MonoBehaviour
 {
     public GameObject button;
-    public GameObject button1;
-    public GameObject button2;
     public UnityEngine.UI.Image image ;
     public UnityEngine.UI.Image image1 ;
     public UnityEngine.UI.Image image2 ;
-    public GameObject canvas;
+    //public GameObject canvas;
 
     void Start(){
         button.SetActive(false);
-        button1.SetActive(false);
-        button2.SetActive(false);
-        canvas.SetActive(true);
+        //button1.SetActive(false);
+        //button2.SetActive(false);
+        //canvas.SetActive(true);
     }
     void Update()
     {
@@ -29,8 +27,8 @@ public class ButtonRestriction : MonoBehaviour
     }
     public void enabler(){
         button.SetActive(true);
-        button1.SetActive(true);
-        button2.SetActive(true);
-        canvas.SetActive(false);
+        //button1.SetActive(true);
+        //button2.SetActive(true);
+        //canvas.SetActive(false);
     }
 }
