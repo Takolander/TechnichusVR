@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class PinMangement : MonoBehaviour
 {
-    //Arrays for child pins
+    //Member variables
     private Pin[] pins;
     private Vector3[] positions;
     private Quaternion[] rotations;
-    public int numberOfThrows = 0;
+    public int numberOfThrows;
     private int numberOfFallenPins;
     public bool collision;
-    //Ny kod------------------
     private BowlingBall ball;
-    //--------------------
+
+    //Intializes values
     public void Awake() {
         numberOfThrows = 0;
         numberOfFallenPins = 0;
-        /* Ny kod --> */ ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
+        ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
         pins = GetComponentsInChildren<Pin>();
         collision = false;
         savePosition(); 
-        
     }
 
+    //Called every frame and checks if a pin has fallen over or not
     void Update() {
         for (int i = 0; i < pins.Length; i++)
         {
             if((pins[i].transform.localEulerAngles.z < -45 || pins[i].transform.localEulerAngles.z > 45) && !collision && pins[i].gameObject.activeSelf) {
                 collision = true;
                 Invoke("respawnPins", 3.0f);
-            }/*Ny kod -->*/ else if(numberOfThrows == 2 && ball.needsToRespawn) {
-                
+            }else if(numberOfThrows == 2 && ball.needsToRespawn) {
                 Invoke("respawnPins", 3.0f);
             }
         }    
@@ -48,7 +47,9 @@ public class PinMangement : MonoBehaviour
         }
     }
     
+    //Respawn function that resets pins or removes them depending on some criterias
     public void respawnPins() {
+        //Loop thru pins and check if they have fallen over
         for (int i = 0; i < pins.Length; i++) {
             if((pins[i].transform.localEulerAngles.z < -45 || pins[i].transform.localEulerAngles.z > 45) && pins[i].gameObject.activeSelf) {
                 pins[i].standing = false;
@@ -57,10 +58,12 @@ public class PinMangement : MonoBehaviour
             }
         }
         Debug.Log("Ammount of pins hit: " + numberOfFallenPins);
+        //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
             Debug.Log("Number of throws: " + numberOfThrows);
             Debug.Log("Number of fallenPins: " + numberOfFallenPins);
             Debug.Log("Respawning...");
+            //Loop thru pins and respawn them
             for (int i = 0; i < pins.Length; i++) {
                 pins[i].transform.position = positions[i];
                 pins[i].transform.rotation = rotations[i];
