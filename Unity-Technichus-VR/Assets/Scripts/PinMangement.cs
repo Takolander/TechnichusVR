@@ -25,7 +25,7 @@ public class PinMangement : MonoBehaviour
         ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
         pins = GetComponentsInChildren<Pin>();
         collision = false;
-        scores = new int[12]; //Var igentligen 24
+        scores = new int[12]; 
         finalScore = 0;
         playedFrames = 0;
         scorePosition = 0;
@@ -105,7 +105,7 @@ public class PinMangement : MonoBehaviour
 
         //Counts the final score when all three rounds have been palyed
         if (playedFrames == 4) {
-            for (int i = 0; i < scores.Length; i++) {
+            for (int i = 0; i < 8; i++) {
                 Debug.Log("Värde på plats " + i + ": " + scores[i] + " och värde på plats " + (i+1) + ": " + scores[i+1]);
                 //Strike
                 if (scores[i] == 10) {
