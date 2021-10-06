@@ -25,7 +25,7 @@ public class PinMangement : MonoBehaviour
         ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
         pins = GetComponentsInChildren<Pin>();
         collision = false;
-        scores = new int[20];
+        scores = new int[12]; //Var igentligen 24
         finalScore = 0;
         playedFrames = 0;
         scorePosition = 0;
@@ -66,13 +66,12 @@ public class PinMangement : MonoBehaviour
         }
         if (numberOfThrows != 2) {
             throwOne = numberOfFallenPins;
-            Debug.Log("numberofthrows !=2: " + throwOne);
+            
         }
         //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
             //Calculate the score
             calculateScore(throwOne, (numberOfFallenPins - throwOne));
-            Debug.Log("Throw one + numberoffallen: " + throwOne + numberOfFallenPins);
             //Loop thru pins and respawn them
             for (int i = 0; i < pins.Length; i++) {
                 pins[i].transform.position = positions[i];
@@ -88,6 +87,7 @@ public class PinMangement : MonoBehaviour
             }
             numberOfFallenPins = 0;
             numberOfThrows = 0;
+            throwOne = 0;
         }
         collision = false; 
     }
@@ -95,52 +95,43 @@ public class PinMangement : MonoBehaviour
     //Adds the score of the played frame to an array and at the end of the frames counts the final score
     public void calculateScore(int throwOne, int throwTwo) {
         //Special way to handle if its a spare
-        if ((throwOne + throwTwo) == 10) {
             scores[scorePosition] = throwOne + 10;
             scores[scorePosition + 1] = throwTwo;
             scorePosition += 2;
-            Debug.Log(scores);
-        } else {
-            scores[scorePosition] = throwOne;
-            scores[scorePosition + 1] = throwTwo;
-            scorePosition += 2;
-            Debug.Log(scores);
-        }
-
+            
+        Debug.Log("Throw 1: " + throwOne);
+        Debug.Log("throw 2: " + throwTwo);
         playedFrames++;
-        Debug.Log(playedFrames);
+        Debug.Log("Current frame: " + playedFrames);
+
         //Counts the final score when all three rounds have been palyed
-        if (playedFrames == 10) {
+        if (playedFrames == 4) {
             for (int i = 0; i < scores.Length; i++) {
+                Debug.Log("värde på plats: " + i + " " + scores[i]);
                 //Strike
                 if (scores[i] == 10) {
                     if (scores[i + 2] == 10) {
                         finalScore += (scores[i] + scores[i + 2] + scores[i + 4]);
                         i++;
-                        Debug.Log("Strike" + finalScore);
+                        Debug.Log("Strike");
                     }
                     else {
                         finalScore += (scores[i] + scores[i + 2] + scores[i + 3]);
                         i++;
-                        Debug.Log("Strike: " + finalScore);
+                        Debug.Log("Strike");
                     }
                 } //Spare
-                else if (scores[i] > 10) {
-                    if (scores[i+ 2] > 10) {
-                        finalScore += ((scores[i] - 10) + scores[i + 1] + (scores[i + 2] - 10));
-                        i++;
-                        Debug.Log("Spare: " + finalScore);
-                    } else {
-                        finalScore += ((scores[i] - 10) + scores[i + 1] + scores[i + 2]);
-                        Debug.Log("spare: " + finalScore);
-                    }         
+                else if (scores[i] + scores[i + 1] == 10) {
+                    finalScore += (scores[i] + scores[i + 1] + scores[i + 2]);
+                    Debug.Log("Spare");
                 } //All other cases 
                 else {
                     finalScore += scores[i] + scores[i + 1];
                     i++;
-                    Debug.Log("Ej spare eller strike: " + finalScore);
+                    Debug.Log("Ingen Strike eller Spare");
                 }
             }
+            Debug.Log(finalScore);
         }
     }
 }
