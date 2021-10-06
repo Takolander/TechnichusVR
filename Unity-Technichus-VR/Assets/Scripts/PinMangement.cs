@@ -94,20 +94,19 @@ public class PinMangement : MonoBehaviour
 
     //Adds the score of the played frame to an array and at the end of the frames counts the final score
     public void calculateScore(int throwOne, int throwTwo) {
-        //Special way to handle if its a spare
-            scores[scorePosition] = throwOne + 10;
-            scores[scorePosition + 1] = throwTwo;
-            scorePosition += 2;
+        scores[scorePosition] = throwOne;
+        scores[scorePosition + 1] = throwTwo;
+        scorePosition += 2;
             
         Debug.Log("Throw 1: " + throwOne);
-        Debug.Log("throw 2: " + throwTwo);
+        Debug.Log("Throw 2: " + throwTwo);
         playedFrames++;
         Debug.Log("Current frame: " + playedFrames);
 
         //Counts the final score when all three rounds have been palyed
         if (playedFrames == 4) {
             for (int i = 0; i < scores.Length; i++) {
-                Debug.Log("värde på plats: " + i + " " + scores[i]);
+                Debug.Log("Värde på plats " + i + ": " + scores[i] + " och värde på plats " + (i+1) + ": " + scores[i+1]);
                 //Strike
                 if (scores[i] == 10) {
                     if (scores[i + 2] == 10) {
