@@ -39,9 +39,7 @@ public class PinMangement : MonoBehaviour
             if((pins[i].transform.localEulerAngles.z < -45 || pins[i].transform.localEulerAngles.z > 45) && !collision && pins[i].gameObject.activeSelf) {
                 collision = true;
                 Invoke("respawnPins", 3.0f);
-            }/*else if(numberOfThrows == 2 && ball.needsToRespawn) {
-                Invoke("respawnPins", 3.0f);
-            }*/
+            }
         }
     }
 

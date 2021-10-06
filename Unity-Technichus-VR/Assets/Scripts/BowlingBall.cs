@@ -32,7 +32,7 @@ public class BowlingBall : MonoBehaviour
         } //Checks if the ball has hit the floor and is used to count amount of throws  
         else if(other.gameObject.name == "backWall" && !hasHitPin){
             Invoke("respawnBowlingBall", 2f);
-            pinManager.numberOfThrows++;
+            //pinManager.numberOfThrows++;
         }
         else if (other.gameObject.name == "bowlingFloor" && !needsToRespawn) {
             needsToRespawn = true;
@@ -41,6 +41,9 @@ public class BowlingBall : MonoBehaviour
         else if(other.gameObject.name == "pin" && needsToRespawn){
             hasHitPin = true;
             Invoke("respawnBowlingBall", 2f);
+        } 
+        else if (pinManager.numberOfThrows == 2 && other.gameObject.name == "backWall") {
+            pinManager.Invoke("respawnPins", 3f);
         }
     }
      
