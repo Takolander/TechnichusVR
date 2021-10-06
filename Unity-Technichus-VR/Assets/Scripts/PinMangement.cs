@@ -9,7 +9,6 @@ public class PinMangement : MonoBehaviour
     private Vector3[] positions;
     private Quaternion[] rotations;
     private int[] scores;
-
     public int numberOfThrows;
     private int numberOfFallenPins;
     public bool collision;
@@ -40,9 +39,9 @@ public class PinMangement : MonoBehaviour
             if((pins[i].transform.localEulerAngles.z < -45 || pins[i].transform.localEulerAngles.z > 45) && !collision && pins[i].gameObject.activeSelf) {
                 collision = true;
                 Invoke("respawnPins", 3.0f);
-            }else if(numberOfThrows == 2 && ball.needsToRespawn) {
+            }/*else if(numberOfThrows == 2 && ball.needsToRespawn) {
                 Invoke("respawnPins", 3.0f);
-            }
+            }*/
         }
     }
 
@@ -69,15 +68,13 @@ public class PinMangement : MonoBehaviour
         }
         if (numberOfThrows != 2) {
             throwOne = numberOfFallenPins;
+            Debug.Log("numberofthrows !=2: " + throwOne);
         }
-        Debug.Log("Ammount of pins hit: " + numberOfFallenPins);
         //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
-            Debug.Log("Number of throws: " + numberOfThrows);
-            Debug.Log("Number of fallenPins: " + numberOfFallenPins);
-            Debug.Log("Respawning...");
             //Calculate the score
             calculateScore(throwOne, (numberOfFallenPins - throwOne));
+            Debug.Log("Throw one + numberoffallen: " + throwOne + numberOfFallenPins);
             //Loop thru pins and respawn them
             for (int i = 0; i < pins.Length; i++) {
                 pins[i].transform.position = positions[i];
@@ -102,16 +99,18 @@ public class PinMangement : MonoBehaviour
         //Special way to handle if its a spare
         if ((throwOne + throwTwo) == 10) {
             scores[scorePosition] = throwOne + 10;
-            scores[scorePosition] = throwTwo;
+            scores[scorePosition + 1] = throwTwo;
             scorePosition += 2;
+            Debug.Log(scores);
         } else {
             scores[scorePosition] = throwOne;
             scores[scorePosition + 1] = throwTwo;
             scorePosition += 2;
+            Debug.Log(scores);
         }
 
         playedFrames++;
-
+        Debug.Log(playedFrames);
         //Counts the final score when all three rounds have been palyed
         if (playedFrames == 10) {
             for (int i = 0; i < scores.Length; i++) {
@@ -120,23 +119,28 @@ public class PinMangement : MonoBehaviour
                     if (scores[i + 2] == 10) {
                         finalScore += (scores[i] + scores[i + 2] + scores[i + 4]);
                         i++;
+                        Debug.Log("Strike" + finalScore);
                     }
                     else {
                         finalScore += (scores[i] + scores[i + 2] + scores[i + 3]);
                         i++;
+                        Debug.Log("Strike: " + finalScore);
                     }
                 } //Spare
                 else if (scores[i] > 10) {
                     if (scores[i+ 2] > 10) {
                         finalScore += ((scores[i] - 10) + scores[i + 1] + (scores[i + 2] - 10));
                         i++;
+                        Debug.Log("Spare: " + finalScore);
                     } else {
                         finalScore += ((scores[i] - 10) + scores[i + 1] + scores[i + 2]);
+                        Debug.Log("spare: " + finalScore);
                     }         
                 } //All other cases 
                 else {
                     finalScore += scores[i] + scores[i + 1];
                     i++;
+                    Debug.Log("Ej spare eller strike: " + finalScore);
                 }
             }
         }
