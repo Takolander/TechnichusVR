@@ -9,6 +9,7 @@ public class Show : MonoBehaviour
     public float timer = 1.5f;
 
     void Start(){
+        //Disable object
         thisObject.SetActive(false);
     }
 

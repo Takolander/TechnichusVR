@@ -8,19 +8,16 @@ using UnityEngine.UI;
 public class DisableImage : MonoBehaviour
 {
     private UnityEngine.UI.Image image ;
-    // Start is called before the first frame update
+
+    //The image gets the component and execute the hider function
     private void Awake()
     {
         image = GetComponent<UnityEngine.UI.Image>();
         Hider();
     }
+
+    //Disable the image so its not shown
     public void Hider(){
         image.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

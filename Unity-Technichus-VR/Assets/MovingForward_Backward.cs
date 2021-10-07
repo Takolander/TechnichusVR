@@ -10,10 +10,11 @@ public class Test : MonoBehaviour
 
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
+
     // Start is called before the first frame update
     void Start()
     {
-        posOffset = transform.position;
+        posOffset = transform.position; 
     }
 
     // Update is called once per frame

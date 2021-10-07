@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class ButtonRestriction : MonoBehaviour
+public class Testing : MonoBehaviour
 {
     public GameObject button;
     public UnityEngine.UI.Image image ;
     public UnityEngine.UI.Image image1 ;
     public UnityEngine.UI.Image image2 ;
+    public UnityEngine.UI.Image image3 ;
     //public GameObject canvas;
 
     //Sets the button inactive so it's not shown at the start of scene
@@ -24,8 +22,8 @@ public class ButtonRestriction : MonoBehaviour
     //Checks if the image on the warnings have been enabled and then calls for function
     void Update()
     {
-        if(image.enabled == true && image1.enabled == true && image2.enabled == true){
-            enabler();
+        if(image.enabled == true && image1.enabled == true && image2.enabled == true && image3.enabled == true){
+            enabler(); 
         }
     }
 
