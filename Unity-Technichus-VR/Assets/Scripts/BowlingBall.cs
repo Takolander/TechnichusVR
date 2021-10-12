@@ -6,8 +6,8 @@ using UnityEngine.XR;
 public class BowlingBall : MonoBehaviour
 { 
     //Member variables
-    private Vector3 respawnPos = new Vector3(1.316f, 0.308f, 3.484f);
-    private Vector3 respawnForce = new Vector3(0f, 1f, -1f);
+    private Vector3 respawnPos = new Vector3(13.178f, 0.345f, 38.423f);
+    private Vector3 respawnForce = new Vector3(0f, 1f, 1f);
     private PinMangement pinManager;
     public bool needsToRespawn;
     public bool hasHitPin;
@@ -45,7 +45,7 @@ public class BowlingBall : MonoBehaviour
             needsToRespawn = true;
             pinManager.numberOfThrows++;
         } //Checks if we have colided with a pin and calls the respawn function 
-        else if(other.gameObject.name == "pin" && needsToRespawn && !hasHitPin){
+        else if(other.gameObject.name == "Pin" && needsToRespawn && !hasHitPin){
             hasHitPin = true;
             Debug.Log("Träffat pin och behöver respawnas");
             Invoke("respawnBowlingBall", 2f);
