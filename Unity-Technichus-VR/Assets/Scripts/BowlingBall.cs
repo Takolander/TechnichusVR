@@ -27,8 +27,11 @@ public class BowlingBall : MonoBehaviour
     //Checks for collison with other objects
     public void OnCollisionEnter(Collision other) {
         //Checks if the bowlingball has colided with the backwall or the floor and calls respawn function
-        if(other.gameObject.name == "Plane") {
-            Debug.Log("Respawnat på plane");
+        if(other.gameObject.name == "BRockRoom") {
+            if(needsToRespawn){
+                return;
+            }
+            Debug.Log("Respawnat på BRockRoom");
             Invoke("respawnBowlingBall", 2f); 
         } //Checks if the ball has hit the floor and is used to count amount of throws  
         else if(other.gameObject.name == "backWall" && !hasHitPin){
