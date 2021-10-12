@@ -6718,6 +6718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2041329331393961180, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581636410412559712, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -6768,7 +6772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5581636411558169092, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_LineType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581636411558169092, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_Velocity
@@ -6776,11 +6780,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5581636411558169093, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_Parameters.widthMultiplier
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5581636411558169094, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_LineWidth
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
@@ -6817,7 +6821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1906968233}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906968236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
@@ -6829,7 +6833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906968236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c56aff118503dba409a96f3618655635, type: 3}
   m_Name: 
@@ -6837,6 +6841,46 @@ MonoBehaviour:
   actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rayInteractor: {fileID: 1906968235}
   provider: {fileID: 1906968237}
+--- !u!114 &1906968242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906968236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 0}
+  m_MoveSpeed: 1
+  m_EnableStrafe: 1
+  m_UseGravity: 1
+  m_GravityApplicationMode: 0
+  m_ForwardSource: {fileID: 0}
+  m_LeftHandMoveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 75f1b245-c357-48c8-9acb-8967bec9dda2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_RightHandMoveAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6bf6c732-e011-46b1-acc5-b649a4ec5f10
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1910950884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460458, guid: 8730ea5eeb2a1e14c9ad6ec804d35453, type: 3}

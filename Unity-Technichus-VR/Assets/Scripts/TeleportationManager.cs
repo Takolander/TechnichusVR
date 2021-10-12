@@ -16,11 +16,11 @@ public class TeleportationManager : MonoBehaviour
     {
         rayInteractor.enabled = false;
 
-        var activate = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleportation Mode Activate");
+        var activate = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Activate");
         activate.Enable();
         activate.performed += onTeleportActivate;
 
-        var cancel = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleportation Mode Cancel");
+        var cancel = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Cancel");
         cancel.Enable();
         cancel.performed += onTeleportCancel;
 
