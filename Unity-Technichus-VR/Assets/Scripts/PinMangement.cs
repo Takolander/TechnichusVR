@@ -59,7 +59,6 @@ public class PinMangement : MonoBehaviour
         //Loop thru pins and check if they have fallen over
         for (int i = 0; i < pins.Length; i++) {
             if((pins[i].transform.localEulerAngles.z < -45 || pins[i].transform.localEulerAngles.z > 45) && pins[i].gameObject.activeSelf) {
-                pins[i].standing = false;
                 pins[i].gameObject.SetActive(false);
                 numberOfFallenPins++;
             }
@@ -81,7 +80,6 @@ public class PinMangement : MonoBehaviour
                 pinRigidbody.velocity = Vector3.zero;
                 pinRigidbody.angularVelocity = Vector3.zero;
 
-                pins[i].standing = true;
                 pins[i].gameObject.SetActive(true);
                 
             }

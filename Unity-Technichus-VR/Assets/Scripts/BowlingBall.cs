@@ -28,38 +28,54 @@ public class BowlingBall : MonoBehaviour
 
     //Checks for collison with other objects
     public void OnCollisionEnter(Collision other) {
-        //Checks if the bowlingball has colided with the backwall or the floor and calls respawn function
-        if(other.gameObject.name == "BRockRoom") {
-            if(needsToRespawn){
-                return;
-            }
-            Debug.Log("Respawnat på BRockRoom");
-            Invoke("respawnBowlingBall", 2f); 
-        } //Checks if the ball has hit the floor and is used to count amount of throws  
-        else if(other.gameObject.name == "backWall" && !hasHitPin){
-            if(pinManager.numberOfThrows == 2){
-            pinManager.Invoke("respawnPins", 2f);
-            Invoke("respawnBowlingBall", 2f);
-            } else{
+        //Gets name of the object we colided with
+        var name = other.gameObject.name;
+
+        switch (name)
+        {
+            //Collision with anything but the actual playing bowlingFloor
+            case "BRockRoom":
+                //Check if we have hit the bowlingFloor before, we might be in the gutter and don't want to respawn
+                if (needsToRespawn)
+                {
+                    break;
+                }
                 Invoke("respawnBowlingBall", 2f);
-            }
-            
-            //pinManager.numberOfThrows++;
+                break;
+            //Collision with the back wall at the end of the court
+            case "backWall":
+                //Check if we diden't hit a pin on the way
+                if (!hasHitPin)
+                {
+                    //Have we made two throws?
+                    if (pinManager.numberOfThrows == 2)
+                    {
+                        pinManager.Invoke("respawnPins", 2f);
+                    }
+                    Invoke("respawnBowlingBall", 2f);
+                }
+                break;
+            //Collision with a pin
+            case "Pin":
+                //Check if we have hit a pin before to not call this method over and over
+                if (!hasHitPin)
+                {
+                    hasHitPin = true;
+                    Invoke("respawnBowlingBall", 2f);
+                }
+                break;
+            //Collision with the playable bowlingFloor
+            case "bowlingFloor":
+                //Makes it so the ball is in a state that it needs to respawn and counts the throw
+                if (!needsToRespawn)
+                {
+                    needsToRespawn = true;
+                    pinManager.numberOfThrows++;
+                }
+                break;
+            default:
+                break;
         }
-        else if (other.gameObject.name == "bowlingFloor" && !needsToRespawn) {
-            needsToRespawn = true;
-            pinManager.numberOfThrows++;
-            //sound.roleOnFloor();
-        } //Checks if we have colided with a pin and calls the respawn function 
-        else if(other.gameObject.name == "Pin" && needsToRespawn && !hasHitPin){
-            hasHitPin = true;
-            Debug.Log("Träffat pin och behöver respawnas");
-            Invoke("respawnBowlingBall", 2f);
-        }
-        /*else if (pinManager.numberOfThrows == 2 && other.gameObject.name == "backWall" && !hasHitPin) {
-            Debug.Log("Inne i nya else if satsen");
-            pinManager.Invoke("respawnPins", 3f);
-        }*/
     }
      
     //Respawn function that resets the transform of the bowlingball and it's velocity. It also adds force to the ball when it respawns to roll out of the machine
