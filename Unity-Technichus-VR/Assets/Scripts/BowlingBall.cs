@@ -11,6 +11,7 @@ public class BowlingBall : MonoBehaviour
     private PinMangement pinManager;
     public bool needsToRespawn;
     public bool hasHitPin;
+    //private Sounds sound;
 
     //Initializes values
     public void Awake() {
@@ -22,6 +23,7 @@ public class BowlingBall : MonoBehaviour
     //Gets refernce to the pinManager script
     public void Start() {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
+        //sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
     }
 
     //Checks for collison with other objects
@@ -47,6 +49,7 @@ public class BowlingBall : MonoBehaviour
         else if (other.gameObject.name == "bowlingFloor" && !needsToRespawn) {
             needsToRespawn = true;
             pinManager.numberOfThrows++;
+            //sound.roleOnFloor();
         } //Checks if we have colided with a pin and calls the respawn function 
         else if(other.gameObject.name == "Pin" && needsToRespawn && !hasHitPin){
             hasHitPin = true;

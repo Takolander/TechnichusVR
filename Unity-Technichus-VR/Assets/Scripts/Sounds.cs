@@ -9,6 +9,12 @@ public class Sounds : MonoBehaviour
     public AudioSource ballHit4Pin;
     public AudioSource ballHit10Pin;
 
+
+    // public void roleOnFloor()
+    // {
+    //     Debug.Log("TEST!!!!!!");
+    //     ballRolling.Play();
+    // }
     // Start is called before the first frame update
     // void Start()
     // {
@@ -18,16 +24,22 @@ public class Sounds : MonoBehaviour
 
     // Update is called once per frame
 
-    void OnCollisionEnter(Collision collision) 
-    {
-        if(collision.gameObject.name == "pin")
-        {
-            ballHit10Pin.Play();
-        }
-        
-        else if(collision.gameObject.name == "bowlingFloor")
+
+     void OnCollisionEnter(Collision collision) 
+     {
+        if(collision.gameObject.name == "bowlingFloor")
         {
             ballRolling.Play();
+        }
+        else if(collision.gameObject.name == "Pin")
+        {
+            ballRolling.Stop();
+            ballHit10Pin.Play();
+        }
+        else if(collision.gameObject.name == "backWall")
+        {
+            ballRolling.Stop();
+            ballHit10Pin.Stop();
         }
     }
 }
