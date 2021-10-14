@@ -34,16 +34,13 @@ public class BowlingBall : MonoBehaviour
         switch (name)
         {
             //Collision with anything but the actual playing bowlingFloor
-            case "BRockRoom":
-                //Check if we have hit the bowlingFloor before, we might be in the gutter and don't want to respawn
-                if (needsToRespawn)
-                {
-                    break;
-                }
+            case "outOfBounds":
+                Debug.Log("Bollen har kastats utanför bannan");
                 Invoke("respawnBowlingBall", 2f);
                 break;
             //Collision with the back wall at the end of the court
             case "backWall":
+                Debug.Log("Du har nåt backwall");
                 //Check if we diden't hit a pin on the way
                 if (!hasHitPin)
                 {
@@ -66,9 +63,11 @@ public class BowlingBall : MonoBehaviour
                 break;
             //Collision with the playable bowlingFloor
             case "bowlingFloor":
+                Debug.Log("Du har träffat bannan");
                 //Makes it so the ball is in a state that it needs to respawn and counts the throw
                 if (!needsToRespawn)
                 {
+                    Debug.Log("Räknas som ett giltigt kast");
                     needsToRespawn = true;
                     pinManager.numberOfThrows++;
                 }
