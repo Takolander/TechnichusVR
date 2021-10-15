@@ -10,22 +10,36 @@ public class Sounds : MonoBehaviour
     public AudioSource ballHit10Pin;
 
 
-    // public void roleOnFloor()
+    // public void rollOnFloor()
     // {
     //     Debug.Log("TEST!!!!!!");
     //     ballRolling.Play();
     // }
-    // Start is called before the first frame update
-    // void Start()
-    // {
+    //Start is called before the first frame update
+    //void Start()
+    //{
     //     sounds = GetComponent<AudioSource>();
         
     // }
 
     // Update is called once per frame
 
+    public void rollOnFloor()
+    {
+        ballRolling.Play();
+    }
+    public void ballHit1()
+    {
 
-     void OnCollisionEnter(Collision collision) 
+    }
+
+    public void ballHit10()
+    {
+        ballRolling.Stop();
+        ballHit10Pin.Play();
+    }
+
+     /*void OnCollisionEnter(Collision collision) 
      {
         if(collision.gameObject.name == "bowlingFloor")
         {
@@ -41,5 +55,5 @@ public class Sounds : MonoBehaviour
             ballRolling.Stop();
             ballHit10Pin.Stop();
         }
-    }
+    }*/
 }

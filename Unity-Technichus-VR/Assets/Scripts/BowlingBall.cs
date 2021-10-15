@@ -11,7 +11,7 @@ public class BowlingBall : MonoBehaviour
     private PinMangement pinManager;
     public bool needsToRespawn;
     public bool hasHitPin;
-    //private Sounds sound;
+    private Sounds sound;
 
     //Initializes values
     public void Awake() {
@@ -23,7 +23,7 @@ public class BowlingBall : MonoBehaviour
     //Gets refernce to the pinManager script
     public void Start() {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
-        //sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
+        sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
     }
 
     //Checks for collison with other objects
@@ -59,16 +59,19 @@ public class BowlingBall : MonoBehaviour
                 //Check if we have hit a pin before to not call this method over and over
                 if (!hasHitPin)
                 {
+                    sound.ballHit10();
                     hasHitPin = true;
                     Invoke("respawnBowlingBall", 2f);
                 }
                 break;
             //Collision with the playable bowlingFloor
             case "bowlingFloor":
+            
                 Debug.Log("Du har tr�ffat bannan");
                 //Makes it so the ball is in a state that it needs to respawn and counts the throw
                 if (!needsToRespawn)
                 {
+                    sound.rollOnFloor();
                     Debug.Log("R�knas som ett giltigt kast");
                     needsToRespawn = true;
                     pinManager.numberOfThrows++;
