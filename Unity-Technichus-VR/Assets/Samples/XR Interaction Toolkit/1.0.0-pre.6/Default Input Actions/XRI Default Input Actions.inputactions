@@ -645,6 +645,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a4cab728-f713-4fa9-aa7a-e74a178b9662",
+                    "path": "<ViveController>/trackpadClicked",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport Mode Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "62690862-4688-4010-975b-b3d9c6062157",
                     "path": "<XRController>{RightHand}/Primary2DAxis",
                     "interactions": "Sector(directions=1)",
@@ -662,6 +673,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Teleport Mode Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16ceb3e0-7543-4cd2-950e-be798e67721d",
+                    "path": "<ViveController>/trackpadClicked",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport Mode Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
