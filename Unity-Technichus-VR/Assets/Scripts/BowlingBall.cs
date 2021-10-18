@@ -34,6 +34,8 @@ public class BowlingBall : MonoBehaviour
         switch (name)
         {
             //Collision with anything but the actual playing bowlingFloor
+            case "renna":
+            
             case "backFloor":
             case "leftFloorAndTracks":
             case "rightFloorAndTracks":
@@ -42,7 +44,9 @@ public class BowlingBall : MonoBehaviour
                 break;
             //Collision with the back wall at the end of the court
             case "backWall":
+                
                 Debug.Log("Du har nått backwall");
+                sound.backWallSound();
                 //Check if we diden't hit a pin on the way
                 if (!hasHitPin)
                 {
@@ -59,7 +63,7 @@ public class BowlingBall : MonoBehaviour
                 //Check if we have hit a pin before to not call this method over and over
                 if (!hasHitPin)
                 {
-                    sound.ballHit10();
+                    sound.ballHit10Sound();
                     hasHitPin = true;
                     Invoke("respawnBowlingBall", 2f);
                 }
@@ -71,7 +75,7 @@ public class BowlingBall : MonoBehaviour
                 //Makes it so the ball is in a state that it needs to respawn and counts the throw
                 if (!needsToRespawn)
                 {
-                    sound.rollOnFloor();
+                    sound.rollOnFloorSound();
                     Debug.Log("R�knas som ett giltigt kast");
                     needsToRespawn = true;
                     pinManager.numberOfThrows++;

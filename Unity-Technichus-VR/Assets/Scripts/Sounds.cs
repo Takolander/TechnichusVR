@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sounds : MonoBehaviour
 {
     public AudioSource ballRolling;
-    public AudioSource ballHit1Pin;
+    public AudioSource gutter;
     public AudioSource ballHit4Pin;
     public AudioSource ballHit10Pin;
 
@@ -24,7 +24,7 @@ public class Sounds : MonoBehaviour
 
     // Update is called once per frame
 
-    public void rollOnFloor()
+    public void rollOnFloorSound()
     {
         ballRolling.Play();
     }
@@ -33,10 +33,15 @@ public class Sounds : MonoBehaviour
 
     }
 
-    public void ballHit10()
+    public void ballHit10Sound()
     {
         ballRolling.Stop();
         ballHit10Pin.Play();
+    }
+
+    public void backWallSound()
+    {
+        ballRolling.Stop();
     }
 
      /*void OnCollisionEnter(Collision collision) 
