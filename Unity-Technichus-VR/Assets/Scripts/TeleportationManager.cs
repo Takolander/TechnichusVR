@@ -9,34 +9,25 @@ public class TeleportationManager : MonoBehaviour
     [SerializeField] private InputActionAsset actionAsset;
     [SerializeField] private XRRayInteractor rayInteractor;
     [SerializeField] private TeleportationProvider provider;
-    private InputAction _thumbstick;
     private bool _isActive;
 
     void Start()
     {
         rayInteractor.enabled = false;
 
-        var activate = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Activate");
+        var activate = actionAsset.FindActionMap("XRI RightHand").FindAction("Teleport Mode Activate");
         activate.Enable();
         activate.performed += onTeleportActivate;
 
-        var cancel = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Cancel");
+        var cancel = actionAsset.FindActionMap("XRI RightHand").FindAction("Teleport Mode Cancel");
         cancel.Enable();
         cancel.performed += onTeleportCancel;
-
-        _thumbstick = actionAsset.FindActionMap("XRI LeftHand").FindAction("Move");
-        _thumbstick.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!_isActive)
-        {
-            return;
-        }
-
-        if (_thumbstick.triggered)
         {
             return;
         }
