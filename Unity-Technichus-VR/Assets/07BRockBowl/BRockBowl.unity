@@ -3841,6 +3841,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3747237272239583733, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: LeftHandTeleportController
+      objectReference: {fileID: 0}
     - target: {fileID: 3747237273505288885, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_Name
       value: New XR Rig
@@ -3889,6 +3893,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7406554016856885789, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 966536744}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983544882421b50449be0d781013e24e, type: 3}
 --- !u!1001 &1396737216
