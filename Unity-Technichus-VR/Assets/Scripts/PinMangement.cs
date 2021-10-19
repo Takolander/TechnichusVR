@@ -10,7 +10,7 @@ public class PinMangement : MonoBehaviour
     private Quaternion[] rotations;
     private int[] scores;
     public int numberOfThrows;
-    private int numberOfFallenPins;
+    public int numberOfFallenPins;
     public bool collision;
     private BowlingBall ball;
     private int finalScore;

@@ -14,6 +14,7 @@ public class BowlingBall : MonoBehaviour
     public bool needsToRespawn;
     public bool hasHitPin;
     private Sounds sound;
+    private ScoreViewer scoreDisplay;
 
     //Initializes values
     public void Awake() {
@@ -29,7 +30,7 @@ public class BowlingBall : MonoBehaviour
     public void Start() {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
         sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
-
+        scoreDisplay = GameObject.FindObjectOfType(typeof(ScoreViewer)) as ScoreViewer;
     }
 
     //Checks for collison with other objects
@@ -96,6 +97,7 @@ public class BowlingBall : MonoBehaviour
      
     //Respawn function that resets the transform of the bowlingball and it's velocity. It also adds force to the ball when it respawns to roll out of the machine
     public void respawnBowlingBall() {
+        scoreDisplay.Invoke("displayScore", 0f);
         gameObject.transform.position = respawnPos;
 
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
