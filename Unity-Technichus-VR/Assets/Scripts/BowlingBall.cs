@@ -5,9 +5,11 @@ using UnityEngine.XR;
 
 public class BowlingBall : MonoBehaviour
 { 
+
     //Member variables
-    private Vector3 respawnPos = new Vector3(13.178f, 0.345f, 38.423f);
+    private Vector3 respawnPos = new Vector3(13.2819996f, 0.231000006f, 36.0979996f);
     private Vector3 respawnForce = new Vector3(0f, 1f, 1f);
+
     private PinMangement pinManager;
     public bool needsToRespawn;
     public bool hasHitPin;
@@ -20,10 +22,14 @@ public class BowlingBall : MonoBehaviour
         hasHitPin = false;
     }
 
+    void FixedUpdate() {
+        GetComponent<Rigidbody>().AddForce(Vector3.down * 5f * GetComponent<Rigidbody>().mass);
+    }
     //Gets refernce to the pinManager script
     public void Start() {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
         sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
+
     }
 
     //Checks for collison with other objects
@@ -34,7 +40,7 @@ public class BowlingBall : MonoBehaviour
         switch (name)
         {
             //Collision with anything but the actual playing bowlingFloor
-            case "renna":
+            //case "renna":
             
             case "backFloor":
             case "leftFloorAndTracks":
@@ -93,7 +99,7 @@ public class BowlingBall : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         
-        gameObject.GetComponent<Rigidbody>().AddForce(respawnForce * 1500);
+        gameObject.GetComponent<Rigidbody>().AddForce(respawnForce * 1400);
         needsToRespawn = false;
         hasHitPin = false;
     }
