@@ -28,9 +28,10 @@ public class Sounds : MonoBehaviour
     {
         ballRolling.Play();
     }
-    public void ballHit1()
+    public void gutterSound()
     {
-
+        ballRolling.Stop();
+        gutter.Play();
     }
 
     public void ballHit10Sound()
@@ -42,6 +43,7 @@ public class Sounds : MonoBehaviour
     public void backWallSound()
     {
         ballRolling.Stop();
+        gutter.Stop();
     }
 
      /*void OnCollisionEnter(Collision collision) 

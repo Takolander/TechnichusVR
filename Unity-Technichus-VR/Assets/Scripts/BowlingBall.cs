@@ -40,7 +40,9 @@ public class BowlingBall : MonoBehaviour
         switch (name)
         {
             //Collision with anything but the actual playing bowlingFloor
-            //case "renna":
+            case "renna":
+                sound.gutterSound();
+                break;
             
             case "backFloor":
             case "leftFloorAndTracks":
