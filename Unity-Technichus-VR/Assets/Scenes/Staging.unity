@@ -12244,7 +12244,7 @@ PrefabInstance:
     - target: {fileID: 5581636411558169147, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_ModelPrefab
       value: 
-      objectReference: {fileID: 4617339355438084, guid: 3d080a4b1c913ac478a58c62d8fa2d1e, type: 3}
+      objectReference: {fileID: 4323715392036236, guid: 9167ebd0e6f59d842ab34ebf9844a5f2, type: 3}
     - target: {fileID: 5581636411648160849, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -12276,7 +12276,7 @@ PrefabInstance:
     - target: {fileID: 5581636411648160853, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_ModelPrefab
       value: 
-      objectReference: {fileID: 4617339355438084, guid: 3d080a4b1c913ac478a58c62d8fa2d1e, type: 3}
+      objectReference: {fileID: 4323715392036236, guid: 9167ebd0e6f59d842ab34ebf9844a5f2, type: 3}
     - target: {fileID: 5581636411648160853, guid: 93c059451c3605b47999b3c7e595f87b, type: 3}
       propertyPath: m_AnimateModel
       value: 0
