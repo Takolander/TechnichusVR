@@ -6,8 +6,9 @@ public class Sounds : MonoBehaviour
 {
     public AudioSource ballRolling;
     public AudioSource gutter;
-    public AudioSource ballHit4Pin;
-    public AudioSource ballHit10Pin;
+    public AudioSource backWall;
+    public AudioSource respawn;
+    public AudioSource ballHitPin;
 
 
     // public void rollOnFloor()
@@ -37,13 +38,19 @@ public class Sounds : MonoBehaviour
     public void ballHit10Sound()
     {
         ballRolling.Stop();
-        ballHit10Pin.Play();
+        ballHitPin.Play();
     }
 
     public void backWallSound()
     {
         ballRolling.Stop();
         gutter.Stop();
+        backWall.Play();
+    }
+
+    public void respawnSound()
+    {
+        respawn.Play();
     }
 
      /*void OnCollisionEnter(Collision collision) 

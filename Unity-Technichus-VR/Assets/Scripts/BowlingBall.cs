@@ -97,6 +97,7 @@ public class BowlingBall : MonoBehaviour
      
     //Respawn function that resets the transform of the bowlingball and it's velocity. It also adds force to the ball when it respawns to roll out of the machine
     public void respawnBowlingBall() {
+        sound.respawnSound();
         gameObject.transform.position = respawnPos;
 
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
