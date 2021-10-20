@@ -9,10 +9,10 @@ public class DoorHandle : MonoBehaviour {
         //Checks if the bowlingball has colided with the backwall or the floor and calls respawn function
         if(other.gameObject.name == "door_handle") {
             SceneManager.LoadScene(sceneName);
-            Debug.Log("Inne i if satsen");
+            //Debug.Log("Inne i if satsen");
             //LoadScene(sceneName);
         }
-        Debug.Log("Inne i ontrigger");
+        //Debug.Log("Inne i ontrigger");
     }
     //Load an Scene
     public void LoadScene(string sceneName) {  
