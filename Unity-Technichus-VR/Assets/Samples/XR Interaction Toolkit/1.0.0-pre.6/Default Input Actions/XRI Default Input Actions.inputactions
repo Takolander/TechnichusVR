@@ -563,6 +563,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Menu Toggle",
+                    "type": "Button",
+                    "id": "6692ce7a-e887-4979-ab5a-d8dd5ec1b375",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -849,6 +857,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Teleport Mode Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "195c307c-324a-4efb-a6ec-80b75973eacd",
+                    "path": "<ViveController>{RightHand}/menu",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
