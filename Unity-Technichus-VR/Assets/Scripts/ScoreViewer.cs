@@ -11,7 +11,7 @@ public class ScoreViewer : MonoBehaviour
     void Awake()
     {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
-        scoreText = GetComponent<Text>();
+        scoreText = gameObject.GetComponentInChildren(typeof(Text)) as Text;
     }
 
     void Start()
@@ -21,9 +21,10 @@ public class ScoreViewer : MonoBehaviour
 
     void displayScore()
     {
-        if (pinManager.numberOfThrows == 0) return;
+        Debug.Log("Skriver ut score");
        
         int fallenPins = pinManager.numberOfFallenPins;
+        Debug.Log("Anatal nedslagna pins (ScoreViewer)" + fallenPins);
         switch (fallenPins)
         {
             case 10:
@@ -38,5 +39,6 @@ public class ScoreViewer : MonoBehaviour
                 scoreText.text = fallenPins.ToString();
                 break;
         }
+        pinManager.numberOfFallenPins = 0;
     }
 }

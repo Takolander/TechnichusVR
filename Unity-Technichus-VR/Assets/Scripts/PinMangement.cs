@@ -17,6 +17,7 @@ public class PinMangement : MonoBehaviour
     private int playedFrames;
     private int throwOne;
     private int scorePosition;
+    private ScoreViewer scoreDisplay;
 
     //Intializes values
     public void Awake() {
@@ -24,6 +25,7 @@ public class PinMangement : MonoBehaviour
         numberOfFallenPins = 0;
         ball = GameObject.FindObjectOfType(typeof(BowlingBall)) as BowlingBall;
         pins = GetComponentsInChildren<Pin>();
+        scoreDisplay = GameObject.FindObjectOfType(typeof(ScoreViewer)) as ScoreViewer;
         collision = false;
         scores = new int[12]; 
         finalScore = 0;
@@ -64,11 +66,12 @@ public class PinMangement : MonoBehaviour
             }
         }
         if (numberOfThrows != 2) {
-            throwOne = numberOfFallenPins;
-            
+            throwOne = numberOfFallenPins;  
         }
+
         //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
+            scoreDisplay.Invoke("displayScore", 0f);
             //Calculate the score
             calculateScore(throwOne, (numberOfFallenPins - throwOne));
             //Loop thru pins and respawn them
@@ -83,7 +86,7 @@ public class PinMangement : MonoBehaviour
                 pins[i].gameObject.SetActive(true);
                 
             }
-            numberOfFallenPins = 0;
+            //numberOfFallenPins = 0;
             numberOfThrows = 0;
             throwOne = 0;
         }
