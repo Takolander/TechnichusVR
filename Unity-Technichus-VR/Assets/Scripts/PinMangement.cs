@@ -71,7 +71,7 @@ public class PinMangement : MonoBehaviour
 
         //Check if the current round is over
         if (numberOfThrows == 2 || numberOfFallenPins == 10) {
-            scoreDisplay.Invoke("displayScore", 0f);
+            displayScore();
             //Calculate the score
             calculateScore(throwOne, (numberOfFallenPins - throwOne));
             //Loop thru pins and respawn them
@@ -86,9 +86,9 @@ public class PinMangement : MonoBehaviour
                 pins[i].gameObject.SetActive(true);
                 
             }
-            //numberOfFallenPins = 0;
             numberOfThrows = 0;
             throwOne = 0;
+            Invoke("hideScore", 5f);
         }
         collision = false; 
     }
@@ -133,5 +133,20 @@ public class PinMangement : MonoBehaviour
             }
             Debug.Log(finalScore);
         }
+    }
+
+    void displayScore() {
+        if(numberOfFallenPins == 10) {
+            if (numberOfThrows == 2) {
+                scoreDisplay.scoreText.text = "SPARE!";
+            }
+            scoreDisplay.scoreText.text = "STRIKE!";
+        }
+        scoreDisplay.scoreText.text = numberOfFallenPins.ToString();
+        numberOfFallenPins = 0;
+    }
+
+    void hideScore() {
+        scoreDisplay.scoreText.text = "Neon Bowling";
     }
 }

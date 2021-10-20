@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class ScoreViewer : MonoBehaviour
 {
-    private PinMangement pinManager;
-    private Text scoreText;
+    //private PinMangement pinManager;
+    public Text scoreText;
 
     void Awake()
     {
-        pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
+        //pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
         scoreText = gameObject.GetComponentInChildren(typeof(Text)) as Text;
     }
 
@@ -19,7 +19,7 @@ public class ScoreViewer : MonoBehaviour
         scoreText.text = "Neon Bowling";    
     }
 
-    void displayScore()
+    /*void displayScore()
     {
         Debug.Log("Skriver ut score");
        
@@ -40,5 +40,5 @@ public class ScoreViewer : MonoBehaviour
                 break;
         }
         pinManager.numberOfFallenPins = 0;
-    }
+    }*/
 }
