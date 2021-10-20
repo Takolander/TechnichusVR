@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   baseControllerGameObject: {fileID: 952379178}
   menuControllerGameObject: {fileID: 952379177}
   menuCanvas: {fileID: 1423064691}
-  menuActivationReference: {fileID: -8982495641062777038, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  menuActivationReference: {fileID: -223122811151010531, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   onMenuActivate:
     m_PersistentCalls:
       m_Calls:
