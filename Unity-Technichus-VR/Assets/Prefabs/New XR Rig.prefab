@@ -890,7 +890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436d290c8ad95b7418f8fc583a3a2113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 07BRockBowl/BRockBowl
+  sceneBowling: 07BRockBowl/BRockBowl
+  sceneStaging: Scenes/Staging
 --- !u!1 &1417080977369627157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,7 +3232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436d290c8ad95b7418f8fc583a3a2113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 07BRockBowl/BRockBowl
+  sceneBowling: 07BRockBowl/BRockBowl
+  sceneStaging: Scenes/Staging
 --- !u!1 &3747237272959637810
 GameObject:
   m_ObjectHideFlags: 0

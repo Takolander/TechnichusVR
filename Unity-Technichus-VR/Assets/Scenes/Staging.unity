@@ -1538,6 +1538,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299010118481437532, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: RightMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0011884
@@ -1561,6 +1565,10 @@ PrefabInstance:
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.03189999
+      objectReference: {fileID: 0}
+    - target: {fileID: 445002230336236211, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: RightGrab
       objectReference: {fileID: 0}
     - target: {fileID: 847976349013409216, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
@@ -1718,6 +1726,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3747237273666366952, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3747237273666366956, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1749,6 +1761,10 @@ PrefabInstance:
     - target: {fileID: 4181750360858227997, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428975445137796241, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: LeftMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4428975445137796241, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
@@ -1827,6 +1843,10 @@ PrefabInstance:
       value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7558227532936014400, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: LeftGrab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558227532936014400, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1853,6 +1873,10 @@ PrefabInstance:
     - target: {fileID: 7855163384670106139, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.038100004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959525648343373765, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: RightTeleport
       objectReference: {fileID: 0}
     - target: {fileID: 8378279875512439491, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1889,6 +1913,14 @@ PrefabInstance:
     - target: {fileID: 8378279875512439491, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643573200201056224, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: Timer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908628979424702599, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Name
+      value: LeftTeleport
       objectReference: {fileID: 0}
     - target: {fileID: 8908628979424702599, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
@@ -2486,7 +2518,7 @@ GameObject:
   - component: {fileID: 760204844}
   - component: {fileID: 760204843}
   m_Layer: 5
-  m_Name: GrabbableWindow
+  m_Name: GrabbableTextWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4667,7 +4699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436d290c8ad95b7418f8fc583a3a2113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 07BRockBowl/BRockBowl
+  sceneBowling: 07BRockBowl/BRockBowl
+  sceneStaging: Scenes/Staging
 --- !u!64 &1220376707
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5412,6 +5445,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fbf22dafa9347644eaa8e001cadd2b90, type: 2}
+    - target: {fileID: -8560206432570759607, guid: 9699388ffd0338544bca4a95dccbea9e, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8070198995797091802, guid: 9699388ffd0338544bca4a95dccbea9e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6462,7 +6499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb895be03a89014492c04c7164b15b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
+  timer: 15
   Epilepsy: {fileID: 1715855951}
   Equipment: {fileID: 633009516}
   Gameplay: {fileID: 808379417}
