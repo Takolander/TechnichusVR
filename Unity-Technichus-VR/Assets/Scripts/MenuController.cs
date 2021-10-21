@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class MenuController : MonoBehaviour
@@ -23,8 +24,12 @@ public class MenuController : MonoBehaviour
 
     private void MenuModeToogle(InputAction.CallbackContext obj) {
         if(!menuCanvas.activeSelf) {
-            Debug.Log("Canvas is off, turning on");
-            onMenuActivate.Invoke();
+            if(SceneManager.GetActiveScene().name == "Staging") {
+                return;
+            } else {
+                Debug.Log("Canvas is off, turning on");
+                onMenuActivate.Invoke();
+            }
         } else {
             Debug.Log("Canvas is on, turning off");
             onMenuCancel.Invoke();

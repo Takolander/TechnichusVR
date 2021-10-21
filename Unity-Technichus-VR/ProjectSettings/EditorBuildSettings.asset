@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Staging.unity
+    guid: 773de88e14f75d84a8202e9465a52010
+  - enabled: 1
+    path: Assets/07BRockBowl/BRockBowl.unity
+    guid: 8863c66f59224494aa6898bd7de6a269
+  - enabled: 0
+    path: Assets/Scenes/Menu.unity
+    guid: 815d5fbfa7ea58b45844379397459e93
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 161b52bb4538da24f9bf4873c2a5b3a6, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4522a6919b6ee3f40b97d83b5f35657d, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;  
 
 public class DoorHandle : MonoBehaviour {  
-    public string sceneName = "Scenes/Bowling";
+    public string sceneName = "07BRockBowl/BRockBowl";
     void OnTriggerEnter(Collider other) {
         //Checks if the bowlingball has colided with the backwall or the floor and calls respawn function
         if(other.gameObject.name == "door_handle") {
@@ -15,8 +15,8 @@ public class DoorHandle : MonoBehaviour {
         //Debug.Log("Inne i ontrigger");
     }
     //Load an Scene
-    public void LoadScene(string sceneName) {  
+    /*public void LoadScene(string sceneName) {  
         //SceneManager.LoadScene(sceneName);  
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-    }
+    }*/
 }  

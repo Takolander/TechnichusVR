@@ -20,12 +20,16 @@ public class MenuFunctions : MonoBehaviour
     public void QuitGame () 
     {
         //Quit game and return to stagingroom
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        menucon.onMenuCancel.Invoke();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+        SceneManager.LoadScene("Staging");
     }
 
     public void ResetGame () 
     {
         //Reset game, reload and start over bowlinggame
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        menucon.onMenuCancel.Invoke();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("07BRockBowl/BRockBowl");
     }
 }
