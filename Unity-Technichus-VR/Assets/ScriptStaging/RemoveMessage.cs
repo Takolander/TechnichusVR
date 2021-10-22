@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class RemoveMessage : MonoBehaviour
 {
-    public GameObject gameObject1;
-    public GameObject Canvas;
+    public new GameObject gameObject;
+    public new GameObject gameObject1;
+    public new GameObject Canvas;
     //public new GameObject camera;
     //public FadeInFadeOut fader;
     public float Timer = 10.0f;

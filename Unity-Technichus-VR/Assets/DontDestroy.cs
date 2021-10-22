@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    static DontDestroy instance;
     Scene scene;
     SpawnPoint spawn;
-    void Awake() {
-        DontDestroyOnLoad(this.gameObject);
-        if (!instance) {
+    private static DontDestroy instance = null;
+    
+    void Awake(){
+        if(instance == null)
+        {
             instance = this;
-        } else {
-            Destroy(this.gameObject);
+            DontDestroyOnLoad(this.gameObject);
+            return;
         }
+        Destroy(this.gameObject);
     }
+
 
     void OnEnable()
     {
@@ -30,6 +33,10 @@ public class DontDestroy : MonoBehaviour
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
         if(scene.name == "BRockBowl") {
+            Debug.Log("Gick in i if satsen");
+            Debug.Log(spawn.transform.position);
+            this.transform.position = spawn.transform.position;
+        } else if (scene.name == "Staging") {
             Debug.Log("Gick in i if satsen");
             Debug.Log(spawn.transform.position);
             this.transform.position = spawn.transform.position;
