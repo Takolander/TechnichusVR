@@ -12,12 +12,10 @@ public class Show : MonoBehaviour
         //Disable object
         thisObject.SetActive(false);
     }
-
+    //Wait for timer's seconds
     public IEnumerator Wait() {
-        //Wait for timer's seconds
         yield return new WaitForSeconds(timer);
         thisObject.SetActive(true);
-        //gameObject.SetActive(false);
     }
 
     // Update is called once per frame

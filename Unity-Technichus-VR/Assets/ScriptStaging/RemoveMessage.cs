@@ -16,27 +16,22 @@ public class RemoveMessage : MonoBehaviour
         gameObject1.SetActive(false);
         StartCoroutine(Wait());
     }
+
+    //Wait for Timer seconds
     public IEnumerator Wait() {
 
-        //Wait for Timer seconds
+        //Disable the canvas object
         if(gameObject.activeSelf == false){
             gameObject1.SetActive(true);
             yield return new WaitForSeconds(Timer);
             Canvas.SetActive(false);
         }
+
+        //Disable only the first object in the canvas
         if(gameObject.activeSelf == true){
             yield return new WaitForSeconds(Timer);
             gameObject.SetActive(false);
             StartCoroutine(Wait());
         }
-        //Destroy(gameObject);
     }
-    /*void Update()
-    {
-        //adjust the value more for middle
-        //Gets the cameras rotation x axel and then wait and disable the object
-        if(camera.transform.rotation.x > 0.3){
-            StartCoroutine(Wait());
-        }
-    }*/
 }
