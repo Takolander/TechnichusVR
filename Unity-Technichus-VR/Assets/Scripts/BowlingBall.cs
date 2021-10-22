@@ -72,7 +72,7 @@ public class BowlingBall : MonoBehaviour
                 //Check if we have hit a pin before to not call this method over and over
                 if (!hasHitPin)
                 {
-                    sound.ballHit10Sound();
+                    sound.ballHitPinSound();
                     hasHitPin = true;
                     Invoke("respawnBowlingBall", 2f);
                 }

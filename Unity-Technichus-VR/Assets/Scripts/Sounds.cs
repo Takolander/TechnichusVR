@@ -10,37 +10,27 @@ public class Sounds : MonoBehaviour
     public AudioSource respawn;
     public AudioSource ballHitPin;
 
-
-    // public void rollOnFloor()
-    // {
-    //     Debug.Log("TEST!!!!!!");
-    //     ballRolling.Play();
-    // }
-    //Start is called before the first frame update
-    //void Start()
-    //{
-    //     sounds = GetComponent<AudioSource>();
-        
-    // }
-
-    // Update is called once per frame
-
+    //Sound of the ball rolling on the floor
     public void rollOnFloorSound()
     {
         ballRolling.Play();
     }
+
+    //Sound of the ball rolling in the gutter
     public void gutterSound()
     {
         ballRolling.Stop();
         gutter.Play();
     }
 
-    public void ballHit10Sound()
+    //Sound of the ball hitting pins
+    public void ballHitPinSound()
     {
         ballRolling.Stop();
         ballHitPin.Play();
     }
 
+    //Sound of the ball falling in the pit
     public void backWallSound()
     {
         ballRolling.Stop();
@@ -48,26 +38,9 @@ public class Sounds : MonoBehaviour
         backWall.Play();
     }
 
+    //Sound of ball respawning
     public void respawnSound()
     {
         respawn.Play();
     }
-
-     /*void OnCollisionEnter(Collision collision) 
-     {
-        if(collision.gameObject.name == "bowlingFloor")
-        {
-            ballRolling.Play();
-        }
-        else if(collision.gameObject.name == "Pin")
-        {
-            ballRolling.Stop();
-            ballHit10Pin.Play();
-        }
-        else if(collision.gameObject.name == "backWall")
-        {
-            ballRolling.Stop();
-            ballHit10Pin.Stop();
-        }
-    }*/
 }
