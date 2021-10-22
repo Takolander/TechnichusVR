@@ -10,15 +10,12 @@ public class TeleportController : MonoBehaviour
 
     public InputActionReference teleportationActivationReference;
 
-    public UnityEventBase eventBase;
-
     [Space]
     public UnityEvent onTeleportActivate;
     public UnityEvent onTeleportCancel;
 
     public void Start()
     {
-        eventBase.RemoveAllListeners();
         teleportationActivationReference.action.performed += TeleportModeActivate;
         teleportationActivationReference.action.canceled += TeleportModeCancel;
     }

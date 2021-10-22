@@ -8,15 +8,25 @@ public class DontDestroy : MonoBehaviour
     Scene scene;
     SpawnPoint spawn;
     private static DontDestroy instance = null;
+
+    public static bool created = false;
     
     void Awake(){
-        if(instance == null)
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+         if (objs.Length > 1)
+        {
+            DestroyImmediate(this.gameObject);
+        } else {
+            DontDestroyOnLoad(this.gameObject);
+        }
+        /*if(instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             return;
-        }
-        Destroy(this.gameObject);
+        } else {
+            Destroy(this.gameObject);
+        }*/
     }
 
 
