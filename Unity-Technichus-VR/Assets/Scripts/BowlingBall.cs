@@ -14,7 +14,6 @@ public class BowlingBall : MonoBehaviour
     public bool needsToRespawn;
     public bool hasHitPin;
     private Sounds sound;
-    //private ScoreViewer scoreDisplay;
 
     //Initializes values
     public void Awake() {
@@ -23,14 +22,15 @@ public class BowlingBall : MonoBehaviour
         hasHitPin = false;
     }
 
+    //Makes the ball go down towards the ground faster
     void FixedUpdate() {
         GetComponent<Rigidbody>().AddForce(Vector3.down * 5f * GetComponent<Rigidbody>().mass);
     }
+
     //Gets refernce to the pinManager script
     public void Start() {
         pinManager = GameObject.FindObjectOfType(typeof(PinMangement)) as PinMangement;
         sound = GameObject.FindObjectOfType(typeof(Sounds)) as Sounds;
-        //scoreDisplay = GameObject.FindObjectOfType(typeof(ScoreViewer)) as ScoreViewer;
     }
 
     //Checks for collison with other objects
@@ -44,7 +44,6 @@ public class BowlingBall : MonoBehaviour
             case "renna":
                 sound.gutterSound();
                 break;
-            
             case "backFloor":
             case "leftFloorAndTracks":
             case "rightFloorAndTracks":
@@ -53,7 +52,6 @@ public class BowlingBall : MonoBehaviour
                 break;
             //Collision with the back wall at the end of the court
             case "backWall":
-                
                 Debug.Log("Du har nått backwall");
                 sound.backWallSound();
                 //Check if we diden't hit a pin on the way

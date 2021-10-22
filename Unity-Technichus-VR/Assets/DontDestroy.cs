@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
+    static DontDestroy instance;
     Scene scene;
     SpawnPoint spawn;
     void Awake() {
         DontDestroyOnLoad(this.gameObject);
+        if (!instance) {
+            instance = this;
+        } else {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnEnable()

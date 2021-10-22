@@ -27,7 +27,7 @@ public class PinMangement : MonoBehaviour
         pins = GetComponentsInChildren<Pin>();
         scoreDisplay = GameObject.FindObjectOfType(typeof(ScoreViewer)) as ScoreViewer;
         collision = false;
-        scores = new int[12]; 
+        scores = new int[24]; 
         finalScore = 0;
         playedFrames = 0;
         scorePosition = 0;
@@ -65,6 +65,7 @@ public class PinMangement : MonoBehaviour
                 numberOfFallenPins++;
             }
         }
+
         if (numberOfThrows != 2) {
             throwOne = numberOfFallenPins;  
         }
@@ -86,6 +87,7 @@ public class PinMangement : MonoBehaviour
                 pins[i].gameObject.SetActive(true);
                 
             }
+            numberOfFallenPins = 0;
             numberOfThrows = 0;
             throwOne = 0;
             Invoke("hideScore", 5f);
@@ -105,7 +107,7 @@ public class PinMangement : MonoBehaviour
         Debug.Log("Current frame: " + playedFrames);
 
         //Counts the final score when all three rounds have been palyed
-        if (playedFrames == 4) {
+        if (playedFrames == 10) {
             for (int i = 0; i < 8; i++) {
                 Debug.Log("Värde på plats " + i + ": " + scores[i] + " och värde på plats " + (i+1) + ": " + scores[i+1]);
                 //Strike
@@ -139,11 +141,14 @@ public class PinMangement : MonoBehaviour
         if(numberOfFallenPins == 10) {
             if (numberOfThrows == 2) {
                 scoreDisplay.scoreText.text = "SPARE!";
+            } else {
+                scoreDisplay.scoreText.text = "STRIKE!";
             }
-            scoreDisplay.scoreText.text = "STRIKE!";
+            
+        } else {
+            scoreDisplay.scoreText.text = numberOfFallenPins.ToString();
         }
-        scoreDisplay.scoreText.text = numberOfFallenPins.ToString();
-        numberOfFallenPins = 0;
+        
     }
 
     void hideScore() {
