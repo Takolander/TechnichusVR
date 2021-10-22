@@ -836,7 +836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Grabbable\n V"
+  m_Text: "Greppbar\n V"
 --- !u!222 &412009842
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1538,6 +1538,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92622579252609313, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Text
+      value: "Titta ner p\xE5 dina h\xE4nder f\xF6r att l\xE4ra dig hur kontrollerna
+        fungerar."
+      objectReference: {fileID: 0}
     - target: {fileID: 3747237273505288885, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_Name
       value: 'New XR Rig '
@@ -1585,6 +1590,56 @@ PrefabInstance:
     - target: {fileID: 3747237273505288887, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497776594362339824, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962941156763919079, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265903526886872932, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Text
+      value: "Det h\xE4r \xE4r f\xF6r att g\xF6ra dig bekv\xE4m med VR, testa utrustningen
+        och l\xE4ra dig hur man anv\xE4nder kontrollerna. Sedan \xE4r det bara att
+        b\xF6rja bowla!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983544882421b50449be0d781013e24e, type: 3}
@@ -7823,7 +7878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Grabable\n V"
+  m_Text: "Greppbar\n V"
 --- !u!222 &2114178017
 CanvasRenderer:
   m_ObjectHideFlags: 0
