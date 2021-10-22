@@ -1543,6 +1543,10 @@ PrefabInstance:
       value: RightMenu
       objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0011884
       objectReference: {fileID: 0}
@@ -1556,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1901
+      value: -0.1975
       objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1576,11 +1580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0466
+      value: -0.0548
       objectReference: {fileID: 0}
     - target: {fileID: 334791677966771297, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0374
+      value: 0.0376
       objectReference: {fileID: 0}
     - target: {fileID: 445002230336236211, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_Name
@@ -1588,7 +1592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814057548281452939, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1286
+      value: -0.1433
       objectReference: {fileID: 0}
     - target: {fileID: 814057548281452939, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1596,7 +1600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814057548281452939, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0314
+      value: 0.0269
       objectReference: {fileID: 0}
     - target: {fileID: 847976349013409216, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_IsActive
@@ -2005,6 +2009,10 @@ PrefabInstance:
     - target: {fileID: 8643573200201056224, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: Timer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694738158769797077, guid: 983544882421b50449be0d781013e24e, type: 3}
+      propertyPath: m_Text
+      value: "Tryck p\xE5 marken  -->\n& sl\xE4pp f\xF6r att teleportera"
       objectReference: {fileID: 0}
     - target: {fileID: 8908628979424702599, guid: 983544882421b50449be0d781013e24e, type: 3}
       propertyPath: m_Name
